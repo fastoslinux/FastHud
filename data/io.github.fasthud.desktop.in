@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=fasthudgtk4devel
+Exec=fasthudgtk4devel
+Icon=io.github.fasthud
+Terminal=false
+Type=Application
+Categories=GTK;
+StartupNotify=true

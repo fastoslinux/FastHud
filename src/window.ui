@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface xmlns="http://www.gtk.org/introspection/core/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gtk.org/introspection/core/1.0 http://www.gtk.org/introspection/core.xsd" version="5.0">
+  <object class="GtkApplicationWindow" id="window">
+    <property name="default-width">600</property>
+    <property name="default-height">500</property>
+    <property name="title" translatable="yes">FastHud</property>
+    <child>
+      <object class="GtkGrid" id="grid">
+        <property name="row-homogeneous">False</property>
+        <property name="column-homogeneous">True</property>
+        <property name="column-spacing">10</property>
+        <property name="margin-bottom">20</property>
+        <child>
+          <object class="GtkBox" id="left_space">
+            <property name="orientation">GTK_ORIENTATION_HORIZONTAL</property>
+            <property name="hexpand">True</property>
+          </object>
+          <packing>
+            <property name="left-attach">0</property>
+            <property name="top-attach">1</property>
+            <property name="width">1</property>
+            <property name="height">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="button">
+            <property name="label" translatable="yes">Apply</property>
+            <property name="hexpand">False</property>
+            <property name="margin-bottom">20</property>
+          </object>
+          <packing>
+            <property name="left-attach">1</property>
+            <property name="top-attach">5</property>
+            <property name="width">1</property>
+            <property name="height">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="right_space">
+            <property name="orientation">GTK_ORIENTATION_HORIZONTAL</property>
+            <property name="hexpand">True</property>
+          </object>
+          <packing>
+            <property name="left-attach">2</property>
+            <property name="top-attach">1</property>
+            <property name="width">1</property>
+            <property name="height">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="expanding_space">
+            <property name="orientation">GTK_ORIENTATION_VERTICAL</property>
+            <property name="vexpand">True</property>
+          </object>
+          <packing>
+            <property name="left-attach">0</property>
+            <property name="top-attach">0</property>
+            <property name="width">3</property>
+            <property name="height">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="topleft_checkbox">
+            <property name="label" translatable="yes">Top Left</property>
+            <property name="halign">GTK_ALIGN_START</property>
+            <property name="valign">GTK_ALIGN_START</property>
+          </object>
+          <packing>
+            <property name="left-attach">0</property>
+            <property name="top-attach">0</property>
+            <property name="width">1</property>
+            <property name="height">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="topright_checkbox">
+            <property name="label" translatable="yes">Top Right</property>
+            <property name="halign">GTK_ALIGN_END</property>
+            <property name="valign">GTK_ALIGN_START</property>
+          </object>
+          <packing>
+            <property name="left-attach">2</property>
+            <property name="top-attach">0</property>
+            <property name="width">1</property>
+            <property name="height">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="bottomleft_checkbox">
+            <property name="label" translatable="yes">Bottom Left</property>
+            <property name="halign">GTK_ALIGN_START</property>
+            <property name="valign">GTK_ALIGN_END</property>
+          </object>
+          <packing>
+            <property name="left-attach">0</property>
+            <property name="top-attach">2</property>
+            <property name="width">1</property>
+            <property name="height">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="bottomright_checkbox">
+            <property name="label" translatable="yes">Bottom Right</property>
+            <property name="halign">GTK_ALIGN_END</property>
+            <property name="valign">GTK_ALIGN_END</property>
+          </object>
+          <packing>
+            <property name="left-attach">2</property>
+            <property name="top-attach">2</property>
+            <property name="width">1</property>
+            <property name="height">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkBox" id="checkbox_box">
+            <property name="orientation">GTK_ORIENTATION_VERTICAL</property>
+            <property name="spacing">10</property>
+            <property name="margin-top">20</property>
+          </object>
+          <packing>
+            <property name="left-attach">1</property>
+            <property name="top-attach">0</property>
+            <property name="width">1</property>
+            <property name="height">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="top_checkbox">
+            <property name="label" translatable="yes">Layout Vertical</property>
+          </object>
+          <packing>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="middle_checkbox">
+            <property name="label" translatable="yes">Layout Vertical Complete</property>
+          </object>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkCheckButton" id="bottom_checkbox">
+            <property name="label" translatable="yes">Layout Horizontal</property>
+          </object>
+          <packing>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkScale" id="slider">
+            <property name="orientation">GTK_ORIENTATION_HORIZONTAL</property>
+            <property name="draw-value">True</property>
+            <property name="digits">2</property>
+            <property name="size-request">150</property>
+            <property name="halign">GTK_ALIGN_CENTER</property>
+          </object>
+          <packing>
+            <property name="left-attach">1</property>
+            <property name="top-attach">3</property>
+            <property name="width">1</property>
+            <property name="height">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkEntry" id="entry">
+            <property name="placeholder-text" translatable="yes">FPS Limit (0 = unlimited)</property>
+            <property name="max-length">3</property>
+          </object>
+          <packing>
+            <property name="left-attach">1</property>
+            <property name="top-attach">4</property>
+            <property name="width">1</property>
+            <property name="height">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
+

@@ -1,0 +1,6 @@
+data/io.github.fasthud.desktop.in
+data/io.github.fasthud.appdata.xml.in
+data/io.github.fasthud.gschema.xml
+src/main.py
+src/window.py
+src/window.ui

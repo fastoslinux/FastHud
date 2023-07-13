@@ -1,0 +1,36 @@
+{
+    "app-id" : "io.github.fasthud",
+    "runtime" : "org.gnome.Platform",
+    "runtime-version" : "44",
+    "sdk" : "org.gnome.Sdk",
+    "command" : "fasthudgtk4devel",
+    "finish-args" : [
+        "--socket=fallback-x11",
+        "--socket=wayland",
+        "--filesystem=xdg-config/MangoHud:rw"
+    ],
+    "cleanup" : [
+        "/include",
+        "/lib/pkgconfig",
+        "/man",
+        "/share/doc",
+        "/share/gtk-doc",
+        "/share/man",
+        "/share/pkgconfig",
+        "*.la",
+        "*.a"
+    ],
+    "modules" : [
+        {
+            "name" : "fasthudgtk4devel",
+            "builddir" : true,
+            "buildsystem" : "meson",
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "file:///var/home/Silverblue/Projetos"
+                }
+            ]
+        }
+    ]
+}
