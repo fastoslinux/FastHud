@@ -5,3 +5,6 @@ Easily configure MangoHud with pre-defined settings while having the option to a
 Video Demo:
 
 https://youtu.be/gf-XTDrDM7A
+
+Install Flatpak:
+https://github.com/fastoslinux/FastHudGtk4devel/releases/download/0.1/io.github.fasthud.flatpak
