@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=fasthud
+Name=FastHud
 Exec=fasthudgtk4devel
 Icon=io.github.fasthud
 Terminal=false
