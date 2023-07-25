@@ -22,13 +22,15 @@
     ],
     "modules" : [
         {
-            "name" : "fasthudgtk4devel",
+            "name" : "FastHud",
             "builddir" : true,
             "buildsystem" : "meson",
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "file:///var/home/Silverblue/Projetos"
+                    "url" : "https://github.com/fastoslinux/FastHud.git",
+                    "tag":"0.1",
+                    "commit":"c4a8140de71416a3d1452730b3a84a8a31db0382"
                 }
             ]
         }
