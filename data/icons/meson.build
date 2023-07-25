@@ -1,4 +1,4 @@
-application_id = 'io.github.fasthud'
+application_id = 'io.github.fastoslinux.fasthud'
 
 scalable_dir = join_paths('hicolor', 'scalable', 'apps')
 install_data(
