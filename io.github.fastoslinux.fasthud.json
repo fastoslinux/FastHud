@@ -30,7 +30,7 @@
                     "type" : "git",
                     "url" : "https://github.com/fastoslinux/FastHud.git",
                     "tag":"0.1",
-                    "commit":"c4a8140de71416a3d1452730b3a84a8a31db0382"
+                    "commit":"dbd8a1f05a9892fe25d46fd7a6d2a894dd7489bd"
                 }
             ]
         }
