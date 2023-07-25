@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="fasthudgtk4devel">
-	<schema id="io.github.fasthud" path="/io/github/fasthud/">
+	<schema id="io.github.fastoslinux.fasthud" path="/io/github/fasthud/">
 	</schema>
 </schemalist>
