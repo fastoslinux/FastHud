@@ -15,6 +15,6 @@ class MyApp(Adw.Application):
         self.win = MainWindow(application=app)
         self.win.present()
 
-app = MyApp(application_id="io.github.fasthud")
+app = MyApp(application_id="io.github.fastoslinux.fasthud")
 app.run(sys.argv)
 
