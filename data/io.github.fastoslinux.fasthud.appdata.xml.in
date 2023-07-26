@@ -1,42 +1,69 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop">
-	<id>io.github.fastoslinux.fasthud.desktop</id>
-	<metadata_license>CC0-1.0</metadata_license>
-	<project_license>GPL-3.0-or-later</project_license>
-	<name>FastHUD</name>
-	<summary>Configurador do MangoHud</summary>
-	<description>
-	  <p>Easily configure MangoHud with pre-defined settings while having the option to adjust layouts between vertical and horizontal orientations. Additionally, the app automatically creates a backup of the previous MangoHud.conf file upon clicking the 'Apply' button.</p>
-	</description>
-	<screenshots>
-		<screenshot>
-			<caption>App</caption>
-			<image>https://github.com/fastoslinux/FastHud/blob/master/data/fasthud1.png</image>
-		</screenshot>
-		<screenshot>
-			<caption>Layout Vertical Completo</caption>
-			<image>https://github.com/fastoslinux/FastHud/blob/master/data/fasthud2.png</image>
-		</screenshot>
-		<screenshot>
-			<caption>Layout Vertical</caption>
-			<image>https://github.com/fastoslinux/FastHud/blob/master/data/fasthud3.png</image>
-		</screenshot>
-		<screenshot>
-			<caption>Layout Horizontal</caption>
-			<image>https://github.com/fastoslinux/FastHud/blob/master/data/fasthud4.png</image>
-		</screenshot>
-	</screenshots>
-	<url type="homepage">https://github.com/fastoslinux/fasthud</url>
-	<url type="bugtracker">https://github.com/fastoslinux/fasthud/issues</url>
-	<project_group>FastOSLinux</project_group>
-	<releases>
-		<release date="2023-07-26" version="1.0" type="stable">
-			<description>
-				<p>Initial release of FastHUD.</p>
-			</description>
-		</release>
-	</releases>
-	<update_contact>fastos2016@gmail.com</update_contact>
-	<translation>https://github.com/fastoslinux/fasthud/</translation>
+    <id>io.github.fastoslinux.fasthud.desktop</id>
+    <metadata_license>CC0-1.0</metadata_license>
+    <project_license>GPL-3.0-or-later</project_license>
+    <name>FastHud</name>
+    <summary>Quick MangoHud Configuration</summary>
+    <description>
+        <p>Easily configure MangoHud with pre-defined settings while having the option to adjust layouts between vertical and horizontal orientations. Additionally, the app automatically creates a backup of the previous MangoHud.conf file upon clicking the 'Apply' button.</p>
+    </description>
+    <screenshots>
+        <screenshot>
+            <caption>App</caption>
+            <image>https://github.com/fastoslinux/FastHud/blob/master/data/fasthud1.png</image>
+        </screenshot>
+        <screenshot>
+            <caption>Layout Vertical Completo</caption>
+            <image>https://github.com/fastoslinux/FastHud/blob/master/data/fasthud2.png</image>
+        </screenshot>
+        <screenshot>
+            <caption>Layout Vertical</caption>
+            <image>https://github.com/fastoslinux/FastHud/blob/master/data/fasthud3.png</image>
+        </screenshot>
+        <screenshot>
+            <caption>Layout Horizontal</caption>
+            <image>https://github.com/fastoslinux/FastHud/blob/master/data/fasthud4.png</image>
+        </screenshot>
+    </screenshots>
+    <url type="homepage">https://github.com/fastoslinux/fasthud</url>
+    <url type="bugtracker">https://github.com/fastoslinux/fasthud/issues</url>
+    <project_group>FastOSLinux</project_group>
+    <releases>
+        <release date="2023-07-26" version="1.0" type="stable">
+            <description>
+                <p>Initial release of FastHUD.</p>
+            </description>
+        </release>
+    <update_contact>fastos2016@gmail.com</update_contact>
+    <url type="source">https://github.com/fastoslinux/fasthud/</url>
+    <content_rating type="oars-1.1">
+        <content_attribute id="violence-cartoon">none</content_attribute>
+        <content_attribute id="violence-fantasy">none</content_attribute>
+        <content_attribute id="violence-realistic">none</content_attribute>
+        <content_attribute id="violence-bloodshed">none</content_attribute>
+        <content_attribute id="violence-sexual">none</content_attribute>
+        <content_attribute id="violence-desecration">none</content_attribute>
+        <content_attribute id="violence-slavery">none</content_attribute>
+        <content_attribute id="violence-worship">none</content_attribute>
+        <content_attribute id="drugs-alcohol">none</content_attribute>
+        <content_attribute id="drugs-narcotics">none</content_attribute>
+        <content_attribute id="drugs-tobacco">none</content_attribute>
+        <content_attribute id="sex-nudity">none</content_attribute>
+        <content_attribute id="sex-themes">none</content_attribute>
+        <content_attribute id="sex-homosexuality">none</content_attribute>
+        <content_attribute id="sex-prostitution">none</content_attribute>
+        <content_attribute id="sex-adultery">none</content_attribute>
+        <content_attribute id="sex-appearance">none</content_attribute>
+        <content_attribute id="language-profanity">none</content_attribute>
+        <content_attribute id="language-humor">none</content_attribute>
+        <content_attribute id="language-discrimination">none</content_attribute>
+        <content_attribute id="social-chat">none</content_attribute>
+        <content_attribute id="social-info">none</content_attribute>
+        <content_attribute id="social-audio">none</content_attribute>
+        <content_attribute id="social-location">none</content_attribute>
+        <content_attribute id="social-contacts">none</content_attribute>
+        <content_attribute id="money-purchasing">none</content_attribute>
+        <content_attribute id="money-gambling">none</content_attribute>
+    </content_rating>
 </component>
 
