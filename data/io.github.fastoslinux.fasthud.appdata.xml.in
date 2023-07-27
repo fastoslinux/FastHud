@@ -10,27 +10,27 @@
     </description>
     <screenshots>
         <screenshot>
-            <caption>App</caption>
-            <image>https://github.com/fastoslinux/FastHud/blob/master/data/fasthud1.png</image>
+            <caption>App screenshot</caption>
+            <image>https://raw.githubusercontent.com/fastoslinux/FastHud/master/data/fasthud1.png</image>
         </screenshot>
         <screenshot>
             <caption>Layout Vertical Completo</caption>
-            <image>https://github.com/fastoslinux/FastHud/blob/master/data/fasthud2.png</image>
+            <image>https://raw.githubusercontent.com/fastoslinux/FastHud/master/data/fasthud2.png</image>
         </screenshot>
         <screenshot>
             <caption>Layout Vertical</caption>
-            <image>https://github.com/fastoslinux/FastHud/blob/master/data/fasthud3.png</image>
+            <image>https://raw.githubusercontent.com/fastoslinux/FastHud/master/data/fasthud3.png</image>
         </screenshot>
         <screenshot>
             <caption>Layout Horizontal</caption>
-            <image>https://github.com/fastoslinux/FastHud/blob/master/data/fasthud4.png</image>
+            <image>https://raw.githubusercontent.com/fastoslinux/FastHud/master/data/fasthud4.png</image>
         </screenshot>
     </screenshots>
     <url type="homepage">https://github.com/fastoslinux/fasthud</url>
     <url type="bugtracker">https://github.com/fastoslinux/fasthud/issues</url>
     <project_group>FastOSLinux</project_group>
     <releases>
-        <release date="2023-07-27" version="1.1.2" type="stable">
+        <release date="2023-07-27" version="1.1.3" type="stable">
             <description>
                 <p>Initial release of FastHUD.</p>
             </description>
