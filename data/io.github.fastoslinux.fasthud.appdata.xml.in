@@ -30,7 +30,7 @@
     <url type="bugtracker">https://github.com/fastoslinux/fasthud/issues</url>
     <project_group>FastOSLinux</project_group>
     <releases>
-        <release date="2023-07-26" version="1.1.1" type="stable">
+        <release date="2023-07-27" version="1.1.2" type="stable">
             <description>
                 <p>Initial release of FastHUD.</p>
             </description>
