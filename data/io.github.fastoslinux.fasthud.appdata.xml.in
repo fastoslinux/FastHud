@@ -35,6 +35,8 @@
                 <p>Initial release of FastHUD.</p>
             </description>
         </release>
+    </releases>
+
     <update_contact>fastos2016@gmail.com</update_contact>
     <url type="source">https://github.com/fastoslinux/fasthud/</url>
     <content_rating type="oars-1.1">
