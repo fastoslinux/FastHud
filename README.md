@@ -8,5 +8,5 @@ Video Demo:
 
 https://youtu.be/gf-XTDrDM7A
 
-[Flatpak install](https://github.com/fastoslinux/FastHudGtk4devel/releases/download/0.1/io.github.fasthud.flatpak)
+[Flatpak Bundle](https://github.com/fastoslinux/FastHud/releases/download/0.1/io.github.fastoslinux.fasthud.flatpak)
 
