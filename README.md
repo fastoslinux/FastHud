@@ -32,9 +32,11 @@ Flatpak game:
 Set permissions with [Flatseal](https://flathub.org/pt-BR/apps/com.github.tchx84.Flatseal) or [terminal](https://docs.flatpak.org/en/latest/sandbox-permissions.html?highlight=permission):
 
 env:
+
 ``MANGOHUD=1``
 
 Filesystem:
+
 ``xdg-config/MangoHud:ro``
 
 
