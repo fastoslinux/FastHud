@@ -8,7 +8,7 @@ Video Demo:
 
 https://youtu.be/gf-XTDrDM7A
 
-[Flatpak Bundle](https://github.com/fastoslinux/FastHud/releases/download/0.1/io.github.fastoslinux.fasthud.flatpak)
+[Download Flatpak Bundle](https://github.com/fastoslinux/FastHud/releases/download/0.1/io.github.fastoslinux.fasthud.flatpak)
 
 
 SETUP
