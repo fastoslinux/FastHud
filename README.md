@@ -15,6 +15,8 @@ SETUP
 
 Install Mangohud (Flatpak or whatever):
 
+Need Flathub and GNOME 44 runtime installed
+
 Flatpak:
 
 ``flatpak install org.freedesktop.Platform.VulkanLayer.MangoHud``
