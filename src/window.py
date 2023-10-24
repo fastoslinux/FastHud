@@ -186,7 +186,8 @@ gpu_load_change
 gpu_load_value=50,90
 gpu_load_color=FFFFFF,FFAA7F,CC0000
 gpu_text=GPU
-gpu_color=ED333B
+gpu_color=FEBD9D
+gpu_core_clock
 
 cpu_stats
 cpu_temp
@@ -194,8 +195,9 @@ cpu_load_change
 core_load_change
 cpu_load_value=50,90
 cpu_load_color=FFFFFF,FFAA7F,CC0000
-cpu_color=62A0EA
+cpu_color=FEBD9D
 cpu_text=CPU
+cpu_mhz
 
 vram
 vram_color=FFAA7F
@@ -205,20 +207,24 @@ ram_color=62A0EA
 
 fps
 fps_color_change
-fps_value=59,60,144
-fps_color=ed333b,00FF7F,FFFF00
+fps_value=30,60,144
+fps_color=b22222,fdfd09,39f900
 
 engine_color=FFAA7F
+
+
 frame_timing=1
 frametime_color=00ff00
 background_alpha=0.4
-font_size=30
+font_size=22
 gamemode
-gamepad_battery
+device_battery=gamepad
 gamepad_battery_icon
-time
-position=top
+vulkan_driver
+position=top-left
 round_corners=10
+
+toggle_hud=F1
 
 fps_limit={}
 font_scale={}
@@ -242,9 +248,9 @@ cpu_color=2e97cb
 cpu_text=CPU
 io_color=a491d3
 vram
-vram_color=ad64c1
+vram_color=FEBD9D
 ram
-ram_color=c26693
+ram_color=FEBD9D
 fps
 engine_color=eb5b5b
 gpu_color=2e9762
@@ -259,6 +265,8 @@ background_color=020202
 position=top
 text_color=ffffff
 round_corners=10
+
+toggle_hud=F1
 
 fps_limit={}
 font_scale={}
@@ -314,6 +322,8 @@ gamepad_battery
 gamepad_battery_icon
 battery
 position=top
+
+toggle_hud=F1
 
 fps_limit={}
 font_scale={}
