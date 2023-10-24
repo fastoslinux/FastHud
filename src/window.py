@@ -77,6 +77,19 @@ class MainWindow(Gtk.ApplicationWindow):
         self.bottomright_checkbox.set_valign(Gtk.Align.END)
         self.bottomright_checkbox.connect("toggled", self.on_corner_checkbox_toggled)
 
+        #botões  centrais
+        self.topcenter_checkbox = Gtk.CheckButton(label="Top Center")
+        self.grid.attach(self.topcenter_checkbox, 1, 0, 1, 1)
+        self.topcenter_checkbox.set_halign(Gtk.Align.CENTER)
+        self.topcenter_checkbox.set_valign(Gtk.Align.START)
+        self.topcenter_checkbox.connect("toggled", self.on_corner_checkbox_toggled)
+
+        self.bottomcenter_checkbox = Gtk.CheckButton(label="Bottom Center")
+        self.grid.attach(self.bottomcenter_checkbox, 1, 2, 1, 1)
+        self.bottomcenter_checkbox.set_halign(Gtk.Align.CENTER)
+        self.bottomcenter_checkbox.set_valign(Gtk.Align.END)
+        self.bottomcenter_checkbox.connect("toggled", self.on_corner_checkbox_toggled)
+
         checkbox_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
         self.grid.attach(checkbox_box, 1, 0, 1, 3)
         checkbox_box.set_spacing(10)
@@ -84,7 +97,7 @@ class MainWindow(Gtk.ApplicationWindow):
         top_checkbox = Gtk.CheckButton(label="Layout Vertical")
         top_checkbox.connect("toggled", self.on_checkbox_toggled)
         checkbox_box.append(top_checkbox)
-        checkbox_box.set_margin_top(20)
+        checkbox_box.set_margin_top(80)
 
         middle_checkbox = Gtk.CheckButton(label="Layout Vertical Complete")
         middle_checkbox.connect("toggled", self.on_checkbox_toggled)
@@ -93,6 +106,7 @@ class MainWindow(Gtk.ApplicationWindow):
         bottom_checkbox = Gtk.CheckButton(label="Layout Horizontal")
         bottom_checkbox.connect("toggled", self.on_checkbox_toggled)
         checkbox_box.append(bottom_checkbox)
+        checkbox_box.set_margin_bottom(80)
 
         self.slider = Gtk.Scale.new_with_range(Gtk.Orientation.HORIZONTAL, 0.5, 1.5, 0.1)
         self.slider.set_draw_value(True)
@@ -138,8 +152,10 @@ class MainWindow(Gtk.ApplicationWindow):
     def on_corner_checkbox_toggled(self, button):
         checkboxes = [
             self.topleft_checkbox,
+            self.topcenter_checkbox,
             self.topright_checkbox,
             self.bottomleft_checkbox,
+            self.bottomcenter_checkbox,
             self.bottomright_checkbox,
         ]
         for checkbox in checkboxes:
@@ -354,6 +370,22 @@ font_scale={}
             self.top_left_checkbox.set_active(False)
             self.top_right_checkbox.set_active(False)
             self.bottom_left_checkbox.set_active(False)
+        elif self.topcenter_checkbox.get_active():
+            posicao = "top-center"
+            self.top_left_checkbox.set_active(False)
+            self.top_right_checkbox.set_active(False)
+            self.bottom_left_checkbox.set_active(False)
+            self.bottom_right_checkbox.set_active(False)
+        elif self.bottomcenter_checkbox.get_active():
+            posicao = "bottom-center"
+            self.top_left_checkbox.set_active(False)
+            self.top_right_checkbox.set_active(False)
+            self.bottom_left_checkbox.set_active(False)
+            self.bottom_right_checkbox.set_active(False)
+        else:
+            print("Selecione uma opção de posição!")
+            return
+
 
         if opcao_horizontal and not (opcao_vertical or opcao_vertical_complete):
             conteudo_config = conteudo_horizontal.replace("position=top", f"position={posicao}")
