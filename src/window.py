@@ -188,6 +188,10 @@ class MainWindow(Gtk.ApplicationWindow):
         caminho_config = os.path.expanduser("~/.config/MangoHud/MangoHud.conf")
         caminho_backup = os.path.expanduser("~/.config/MangoHud/backupMangoHud.conf")
 
+        # Verificar se o diretório ~/.config/MangoHud/ existe e criar se não existir
+        diretorio_mangohud = os.path.expanduser("~/.config/MangoHud/")
+        os.makedirs(diretorio_mangohud, exist_ok=True)
+
         os.makedirs(os.path.dirname(caminho_config), exist_ok=True)
 
         conteudo_horizontal = """
