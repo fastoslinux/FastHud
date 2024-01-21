@@ -8,6 +8,7 @@
         "--socket=fallback-x11",
         "--socket=wayland",
         "--filesystem=xdg-config/MangoHud:rw",
+        "--filesystem=~/.config",
         "--share=ipc",
         "--device=dri"
     ],
