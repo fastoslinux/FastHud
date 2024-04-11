@@ -324,6 +324,7 @@ vram_color=ad64c1
 ram
 ram_color=c26693
 fps
+fps_metrics=avg,0.01,0.001
 engine_version
 engine_color=eb5b5b
 gpu_name
