@@ -1,7 +1,7 @@
 {
     "app-id" : "io.github.fastoslinux.fasthud",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "45",
+    "runtime-version" : "46",
     "sdk" : "org.gnome.Sdk",
     "command" : "fasthudgtk4devel",
     "finish-args" : [
@@ -31,8 +31,8 @@
                 {
                     "type" : "git",
                     "url" : "https://github.com/fastoslinux/FastHud.git",
-                    "tag":"1.1.5",
-                    "commit":"395fd456ec06d6e5f4963bb601057cf320b63a9e"
+                    "tag":"2.0.0",
+                    "commit":"42ab8f7ed5a5a0403c345692cd581d4f7468f67b"
                 }
             ]
         }
