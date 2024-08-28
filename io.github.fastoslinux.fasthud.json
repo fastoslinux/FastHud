@@ -5,7 +5,6 @@
     "sdk" : "org.gnome.Sdk",
     "command" : "fasthudgtk4devel",
     "finish-args" : [
-        "--socket=fallback-x11",
         "--socket=wayland",
         "--filesystem=xdg-config/MangoHud:rw",
         "--filesystem=~/.config",

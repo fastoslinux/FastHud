@@ -34,7 +34,7 @@ class MainWindow(Gtk.ApplicationWindow):
             background-color: #3A3A3A;
         }
         '''
-        style_provider.load_from_data(css, -1)
+        style_provider.load_from_data(css.encode(), -1)
         Gtk.StyleContext.add_provider_for_display(
             Gdk.Display.get_default(),
             style_provider,
@@ -77,7 +77,7 @@ class MainWindow(Gtk.ApplicationWindow):
         self.bottomright_checkbox.set_valign(Gtk.Align.END)
         self.bottomright_checkbox.connect("toggled", self.on_corner_checkbox_toggled)
 
-        #botões  centrais
+        #botões centrais
         self.topcenter_checkbox = Gtk.CheckButton(label="Top Center")
         self.grid.attach(self.topcenter_checkbox, 1, 0, 1, 1)
         self.topcenter_checkbox.set_halign(Gtk.Align.CENTER)
@@ -141,8 +141,16 @@ class MainWindow(Gtk.ApplicationWindow):
             Gtk.InputHints.SPELLCHECK | Gtk.InputHints.NO_EMOJI
         )
         self.entry.connect("changed", self.on_entry_changed)
+        self.entry.connect("activate", self.on_entry_activated)
         self.grid.attach(self.entry, 1, 4, 1, 1)
         self.entry.set_margin_bottom(20)
+
+
+    def on_entry_activated(self, entry):
+        # Chama a função que simula o clique no botão Apply
+        self.on_button_clicked(self.button)
+
+
 
     def on_checkbox_toggled(self, button):
         for child in button.get_parent():
@@ -390,7 +398,6 @@ font_scale={}
         else:
             print("Selecione uma opção de posição!")
             return
-
 
         if opcao_horizontal and not (opcao_vertical or opcao_vertical_complete):
             conteudo_config = conteudo_horizontal.replace("position=top", f"position={posicao}")
