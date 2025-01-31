@@ -15,7 +15,7 @@ SETUP
 
 Install Mangohud (Flatpak or whatever):
 
-Need Flathub and GNOME 44 runtime installed
+Need Flathub and GNOME 47 runtime installed
 
 Flatpak:
 

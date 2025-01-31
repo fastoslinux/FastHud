@@ -30,9 +30,9 @@
     <url type="bugtracker">https://github.com/fastoslinux/fasthud/issues</url>
     <project_group>FastOSLinux</project_group>
     <releases>
-        <release date="2023-08-28" version="2.0.0" type="stable">
+        <release date="2025-01-30" version="2.0.1" type="stable">
             <description>
-                <p>Added functionality to trigger the "Apply" button using the Enter key.</p>
+                <p>Highlight for unselected layout/position.</p>
             </description>
         </release>
     </releases>

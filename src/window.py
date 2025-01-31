@@ -183,10 +183,111 @@ class MainWindow(Gtk.ApplicationWindow):
 
         valor_scale = self.slider.get_value()
 
-        if validar_fps(valor_fps):
-            self.mostrar_opcoes(int(valor_fps), valor_scale)
-        else:
+        # Verificar se o valor do FPS é válido
+        if not validar_fps(valor_fps):
             print("Digite no máximo 3 dígitos.")
+            return
+
+        # Verificar se uma posição foi selecionada
+        posicao_selecionada = (
+            self.top_left_checkbox.get_active()
+            or self.top_right_checkbox.get_active()
+            or self.bottom_left_checkbox.get_active()
+            or self.bottom_right_checkbox.get_active()
+            or self.topcenter_checkbox.get_active()
+            or self.bottomcenter_checkbox.get_active()
+        )
+
+        # Verificar se um layout foi selecionado
+        layout_selecionado = (
+            self.layout_vertical_checkbox.get_active()
+            or self.vertical_complete_checkbox.get_active()
+            or self.layout_horizontal_checkbox.get_active()
+        )
+
+        # Se nenhuma posição ou layout for selecionado, destacar os checkboxes e exibir mensagem
+        if not posicao_selecionada or not layout_selecionado:
+            self.aplicar_estilo_destaque()  # Destacar os checkboxes
+            print("Selecione uma opção de posição e layout!")
+            return
+
+        # Se tudo estiver correto, prosseguir com a lógica
+        self.mostrar_opcoes(int(valor_fps), valor_scale)
+
+
+
+    def aplicar_estilo_destaque(self):
+        # Adicionar um estilo CSS temporário para destacar os checkboxes
+        css = '''
+        .destaque {
+            border: 2px solid red;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        '''
+
+        style_provider = Gtk.CssProvider()
+        style_provider.load_from_data(css.encode(), -1)
+        Gtk.StyleContext.add_provider_for_display(
+            Gdk.Display.get_default(),
+            style_provider,
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        )
+
+        # Verificar se os checkboxes de layout estão marcados
+        layout_selecionado = (
+            self.layout_vertical_checkbox.get_active()
+            or self.vertical_complete_checkbox.get_active()
+            or self.layout_horizontal_checkbox.get_active()
+        )
+
+        # Verificar se os checkboxes de posição estão marcados
+        posicao_selecionada = (
+            self.top_left_checkbox.get_active()
+            or self.top_right_checkbox.get_active()
+            or self.bottom_left_checkbox.get_active()
+            or self.bottom_right_checkbox.get_active()
+            or self.topcenter_checkbox.get_active()
+            or self.bottomcenter_checkbox.get_active()
+        )
+
+        # Aplicar o destaque condicionalmente
+        if layout_selecionado and not posicao_selecionada:
+            # Destacar apenas os checkboxes de posição
+            checkboxes_posicao = [
+                self.top_left_checkbox,
+                self.top_right_checkbox,
+                self.bottom_left_checkbox,
+                self.bottom_right_checkbox,
+                self.topcenter_checkbox,
+                self.bottomcenter_checkbox,
+            ]
+            for checkbox in checkboxes_posicao:
+                checkbox.get_style_context().add_class("destaque")
+
+        elif posicao_selecionada and not layout_selecionado:
+            # Destacar apenas os checkboxes de layout
+            checkboxes_layout = [
+                self.layout_vertical_checkbox,
+                self.vertical_complete_checkbox,
+                self.layout_horizontal_checkbox,
+            ]
+            for checkbox in checkboxes_layout:
+                checkbox.get_style_context().add_class("destaque")
+
+        # Remover o estilo após 3 segundos
+        def remover_destaque():
+            if layout_selecionado and not posicao_selecionada:
+                for checkbox in checkboxes_posicao:
+                    checkbox.get_style_context().remove_class("destaque")
+            elif posicao_selecionada and not layout_selecionado:
+                for checkbox in checkboxes_layout:
+                    checkbox.get_style_context().remove_class("destaque")
+
+        # Usar GLib.timeout_add para remover o destaque após 3 segundos
+        from gi.repository import GLib
+        GLib.timeout_add_seconds(3, remover_destaque)
+
 
     def on_slider_value_changed(self, scale):
         value = scale.get_value()
@@ -207,6 +308,7 @@ horizontal
 legacy_layout=0
 table_columns=20
 background_alpha=0
+
 
 gpu_stats
 gpu_temp
@@ -302,6 +404,9 @@ font_scale={}
 
         conteudo_vertical_complete = """
 legacy_layout=false
+
+round_corners=10.0
+
 gpu_stats
 gpu_temp
 gpu_core_clock
@@ -331,8 +436,13 @@ vram
 vram_color=ad64c1
 ram
 ram_color=c26693
+
 fps
+fps_color_change
+fps_value=30,60,144
+fps_color=b22222,fdfd09,39f900
 fps_metrics=avg,0.01,0.001
+
 engine_version
 engine_color=eb5b5b
 gpu_name
@@ -343,7 +453,6 @@ wine
 wine_color=eb5b5b
 frame_timing=1
 frametime_color=00ff00
-frame_count
 show_fps_limit
 resolution
 gamemode
@@ -356,6 +465,9 @@ toggle_hud=F1
 
 fps_limit={}
 font_scale={}
+
+
+
 """
 
         opcao_horizontal = self.layout_horizontal_checkbox.get_active()
