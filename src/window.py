@@ -15,13 +15,23 @@ class MainWindow(Gtk.ApplicationWindow):
         self.grid = Gtk.Grid()
         self.set_child(self.grid)
 
+         # Inicialização das variáveis de cores
+        self.gpu_load_color = "FFFFFF,FFAA7F,CC0000"  # Azul por padrão
+        self.cpu_load_color = "FFFFFF,FFAA7F,CC0000"  # Azul por padrão
+        self.memory_load_color = ""  # Verde por padrão
+        self.disk_load_color = ""    # Vermelho por padrão
+        self.network_load_color = "" # Amarelo por padrão
+        # Se você tiver outras variáveis de cor, defina-as aqui
+        self.gpu_color = "2e9762"         # Azul por padrão
+        self.cpu_color = "2e97cb"         # Azul por padrão
+
         # botão Apply
         left_space = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
         self.grid.attach(left_space, 0, 1, 1, 1)
         left_space.set_hexpand(True)
 
         self.button = Gtk.Button(label="  Apply  ")
-        self.grid.attach(self.button, 1, 5, 1, 1)
+        self.grid.attach(self.button, 1, 8, 1, 1)
         self.button.set_margin_bottom(20)
         self.button.connect("clicked", self.on_button_clicked)
 
@@ -113,6 +123,7 @@ class MainWindow(Gtk.ApplicationWindow):
         self.slider.set_digits(2)
         self.slider.set_size_request(150, -1)
         self.slider.set_margin_start(1)
+        self.slider.set_value(1.0)
 
         self.slider.add_mark(0.5, Gtk.PositionType.BOTTOM, "Small")
         self.slider.add_mark(1.0, Gtk.PositionType.BOTTOM)
@@ -144,6 +155,109 @@ class MainWindow(Gtk.ApplicationWindow):
         self.entry.connect("activate", self.on_entry_activated)
         self.grid.attach(self.entry, 1, 4, 1, 1)
         self.entry.set_margin_bottom(20)
+
+        #botão de cores
+        # Criar o seletor de cores (ComboBoxText)
+        self.color_selector = Gtk.ComboBoxText()
+        self.color_selector.append("default", "Default")
+        self.color_selector.append("blue", "Blue")
+        self.color_selector.append("red", "Red")
+        self.color_selector.append("green", "Green")
+        self.color_selector.set_active(0)  # Azul inicial
+        self.grid.attach(self.color_selector, 1, 5, 1, 1)
+        self.color_selector.set_margin_bottom(20)
+        self.color_selector.connect("changed", self.on_color_selected)
+
+
+
+
+
+
+
+
+    def aplicar_cores(self, cor_selecionada):
+        if cor_selecionada == "default":
+            # Reset to default values
+            self.gpu_load_color = "FFFFFF,FFAA7F,CC0000"  # Default value
+            self.cpu_load_color = "FFFFFF,FFAA7F,CC0000"  # Default value
+            self.gpu_color = "2e9762"  # Default value
+            self.cpu_color = "2e97cb"  # Default value
+            # Reset other colors to their default empty values
+            self.battery_color = ""
+            self.vram_color = ""
+            self.ram_color = ""
+            self.io_color = ""
+            self.engine_color = ""
+            self.frametime_color = ""
+            self.background_color = ""
+            self.text_color = ""
+            self.media_player_color = ""
+            self.network_color = ""
+            self.wine_color = ""
+
+        elif cor_selecionada == "blue":
+            # Blue theme - make sure these are different from defaults
+            self.gpu_load_color = "1E90FF,4682B4,0000CD"  # Different blues
+            self.cpu_load_color = "1E90FF,4682B4,0000CD"  # Different blues
+            self.battery_color = "ADD8E6"       # LightBlue
+            self.gpu_color = "87CEFA"           # LightSkyBlue
+            self.cpu_color = "5F9EA0"           # CadetBlue
+            self.vram_color = "87CEEB"          # SkyBlue
+            self.ram_color = "B0E0E6"           # PowderBlue
+            self.io_color = "D3D3D3"            # LightGray
+            self.engine_color = "B0C4DE"        # LightSteelBlue
+            self.frametime_color = "D3D3D3"     # LightGray
+            self.background_color = "F0F8FF"    # AliceBlue
+            self.text_color = "000000"          # Preto
+            self.media_player_color = "4682B4"  # SteelBlue
+            self.network_color = "5F9EA0"       # CadetBlue
+            self.wine_color = "ADD8E6"          # LightBlue
+
+        elif cor_selecionada == "red":
+            self.gpu_load_color = "FF4500"      # OrangeRed
+            self.cpu_load_color = "FF4500"      # OrangeRed
+            self.gpu_color = "FF6347"           # Tomato
+            self.cpu_color = "F08080"           # LightCoral
+            self.vram_color = "FF7F7F"          # LightPink
+            self.ram_color = "F4A460"           # SandyBrown
+            self.io_color = "D2691E"            # Chocolate
+            self.engine_color = "FF6347"        # Tomato
+            self.frametime_color = "FFE4E1"     # MistyRose
+            self.background_color = "FAFAD2"    # LightGoldenrodYellow
+            self.text_color = "000000"          # Preto
+            self.media_player_color = "CD5C5C"  # IndianRed
+            self.network_color = "F08080"       # LightCoral
+            self.wine_color = "FFC0CB"          # Pink
+
+        elif cor_selecionada == "green":
+            self.gpu_load_color = "32CD32"      # LimeGreen
+            self.cpu_load_color = "32CD32"      # LimeGreen
+            self.battery_color = "B0E57C"       # OliveDrab (mais contraste e menos saturado que o PaleGreen)
+            self.gpu_color = "8FBC8F"           # DarkSeaGreen (para não ser tão saturado)
+            self.cpu_color = "2E8B57"           # SeaGreen (mais escuro que o ForestGreen)
+            self.vram_color = "A2D9A2"          # LightOliveGreen (um verde mais suave e contrastante)
+            self.ram_color = "FFD700"           # Gold (para quebrar o verde e aumentar o contraste)
+            self.io_color = "D3D3D3"            # LightGray
+            self.engine_color = "556B2F"        # DarkOliveGreen (mais contraste e não tão saturado)
+            self.frametime_color = "D3FFD3"     # LightGreen
+            self.background_color = "F0FFF0"    # HoneyDew
+            self.text_color = "000000"          # Preto
+            self.media_player_color = "32CD32"  # LimeGreen
+            self.network_color = "2E8B57"       # SeaGreen
+            self.wine_color = "FF7F50"          # Coral (quebra a monotonia do verde)
+
+
+
+
+    def on_color_selected(self, widget):
+        cor_selecionada = self.color_selector.get_active_id()
+
+        if cor_selecionada == "default":
+            # Deixe o Mangohud decidir a cor por padrão
+            self.aplicar_cores("default")  # Aqui, você pode deixar o Mangohud fazer a escolha padrão
+        else:
+            self.aplicar_cores(cor_selecionada)
+
 
 
     def on_entry_activated(self, entry):
@@ -294,6 +408,7 @@ class MainWindow(Gtk.ApplicationWindow):
         print("Valor selecionado:", value)
 
     def mostrar_opcoes(self, valor_fps, valor_scale):
+        posicao = None
         caminho_config = os.path.expanduser("~/.config/MangoHud/MangoHud.conf")
         caminho_backup = os.path.expanduser("~/.config/MangoHud/backupMangoHud.conf")
 
@@ -303,20 +418,18 @@ class MainWindow(Gtk.ApplicationWindow):
 
         os.makedirs(os.path.dirname(caminho_config), exist_ok=True)
 
-        conteudo_horizontal = """
-horizontal
+        conteudo_horizontal = f"""
 legacy_layout=0
 table_columns=20
 background_alpha=0
-
 
 gpu_stats
 gpu_temp
 gpu_load_change
 gpu_load_value=50,90
-gpu_load_color=FFFFFF,FFAA7F,CC0000
+gpu_load_color={self.gpu_load_color}  # Cor definida pelo usuário
 gpu_text=GPU
-gpu_color=FEBD9D
+gpu_color={self.gpu_color}  # Cor definida pelo usuário
 gpu_core_clock
 
 cpu_stats
@@ -324,8 +437,8 @@ cpu_temp
 cpu_load_change
 core_load_change
 cpu_load_value=50,90
-cpu_load_color=FFFFFF,FFAA7F,CC0000
-cpu_color=FEBD9D
+cpu_load_color={self.cpu_load_color}  # Cor definida pelo usuário
+cpu_color={self.cpu_color}  # Cor definida pelo usuário
 cpu_text=CPU
 cpu_mhz
 
@@ -339,9 +452,9 @@ fps
 fps_color_change
 fps_value=30,60,144
 fps_color=b22222,fdfd09,39f900
+fps_metrics=avg,0.01,0.001
 
 engine_color=FFAA7F
-
 
 frame_timing=1
 frametime_color=00ff00
@@ -351,39 +464,44 @@ gamemode
 device_battery=gamepad
 gamepad_battery_icon
 vulkan_driver
-position=top-left
+position={posicao}  # Posição selecionada pelo usuário
 round_corners=10
 
 toggle_hud=F1
 
-fps_limit={}
-font_scale={}
+fps_limit={valor_fps}
+font_scale={valor_scale}
 """
 
-        conteudo_vertical = """
+        conteudo_vertical = f"""
 legacy_layout=false
 gpu_stats
 gpu_temp
 gpu_load_change
 gpu_load_value=50,90
-gpu_load_color=FFFFFF,FFAA7F,CC0000
+gpu_load_color={self.gpu_load_color}  # Cor definida pelo usuário
 gpu_text=GPU
 cpu_stats
 cpu_temp
 cpu_load_change
 core_load_change
 cpu_load_value=50,90
-cpu_load_color=FFFFFF,FFAA7F,CC0000
-cpu_color=2e97cb
+cpu_load_color={self.cpu_load_color}  # Cor definida pelo usuário
+cpu_color={self.cpu_color}
 cpu_text=CPU
 io_color=a491d3
 vram
 vram_color=FEBD9D
 ram
 ram_color=FEBD9D
+
 fps
+fps_color_change
+fps_value=30,60,144
+fps_color=b22222,fdfd09,39f900
+
 engine_color=eb5b5b
-gpu_color=2e9762
+gpu_color={self.gpu_color}
 wine_color=eb5b5b
 frame_timing=1
 frametime_color=00ff00
@@ -392,17 +510,17 @@ background_alpha=0.4
 font_size=32
 
 background_color=020202
-position=top
+position={posicao}  # Posição selecionada pelo usuário
 text_color=ffffff
 round_corners=10
 
 toggle_hud=F1
 
-fps_limit={}
-font_scale={}
+fps_limit={valor_fps}
+font_scale={valor_scale}
 """
 
-        conteudo_vertical_complete = """
+        conteudo_vertical_complete = f"""
 legacy_layout=false
 
 round_corners=10.0
@@ -414,7 +532,7 @@ gpu_mem_clock
 gpu_power
 gpu_load_change
 gpu_load_value=50,90
-gpu_load_color=FFFFFF,FFAA7F,CC0000
+gpu_load_color={self.gpu_load_color}  # Cor definida pelo usuário
 gpu_text=GPU
 cpu_stats
 cpu_temp
@@ -424,8 +542,8 @@ cpu_mhz
 cpu_load_change
 core_load_change
 cpu_load_value=50,90
-cpu_load_color=FFFFFF,FFAA7F,CC0000
-cpu_color=2e97cb
+cpu_load_color={self.cpu_load_color}  # Cor definida pelo usuário
+cpu_color={self.cpu_color}
 cpu_text=CPU
 io_stats
 io_read
@@ -446,7 +564,7 @@ fps_metrics=avg,0.01,0.001
 engine_version
 engine_color=eb5b5b
 gpu_name
-gpu_color=2e9762
+gpu_color={self.gpu_color}
 vulkan_driver
 arch
 wine
@@ -459,16 +577,18 @@ gamemode
 gamepad_battery
 gamepad_battery_icon
 battery
-position=top
+position={posicao}  # Posição selecionada pelo usuário
 
 toggle_hud=F1
 
-fps_limit={}
-font_scale={}
-
-
-
+fps_limit={valor_fps}
+font_scale={valor_scale}
 """
+
+        opcao_horizontal = self.layout_horizontal_checkbox.get_active()
+        opcao_vertical = self.layout_vertical_checkbox.get_active()
+        opcao_vertical_complete = self.vertical_complete_checkbox.get_active()
+
 
         opcao_horizontal = self.layout_horizontal_checkbox.get_active()
         opcao_vertical = self.layout_vertical_checkbox.get_active()
