@@ -408,7 +408,24 @@ class MainWindow(Gtk.ApplicationWindow):
         print("Valor selecionado:", value)
 
     def mostrar_opcoes(self, valor_fps, valor_scale):
-        posicao = None
+        # Determinar a posição primeiro
+        posicao = ""
+        if self.top_left_checkbox.get_active():
+            posicao = "top-left"
+        elif self.top_right_checkbox.get_active():
+            posicao = "top-right"
+        elif self.bottom_left_checkbox.get_active():
+            posicao = "bottom-left"
+        elif self.bottom_right_checkbox.get_active():
+            posicao = "bottom-right"
+        elif self.topcenter_checkbox.get_active():
+            posicao = "top-center"
+        elif self.bottomcenter_checkbox.get_active():
+            posicao = "bottom-center"
+        else:
+            print("Selecione uma opção de posição!")
+            return
+
         caminho_config = os.path.expanduser("~/.config/MangoHud/MangoHud.conf")
         caminho_backup = os.path.expanduser("~/.config/MangoHud/backupMangoHud.conf")
 
@@ -416,229 +433,185 @@ class MainWindow(Gtk.ApplicationWindow):
         diretorio_mangohud = os.path.expanduser("~/.config/MangoHud/")
         os.makedirs(diretorio_mangohud, exist_ok=True)
 
-        os.makedirs(os.path.dirname(caminho_config), exist_ok=True)
-
         conteudo_horizontal = f"""
-legacy_layout=0
-table_columns=20
-background_alpha=0
+    legacy_layout=0
+    table_columns=20
+    background_alpha=0
 
-gpu_stats
-gpu_temp
-gpu_load_change
-gpu_load_value=50,90
-gpu_load_color={self.gpu_load_color}  # Cor definida pelo usuário
-gpu_text=GPU
-gpu_color={self.gpu_color}  # Cor definida pelo usuário
-gpu_core_clock
+    gpu_stats
+    gpu_temp
+    gpu_load_change
+    gpu_load_value=50,90
+    gpu_load_color={self.gpu_load_color}
+    gpu_text=GPU
+    gpu_color={self.gpu_color}
+    gpu_core_clock
 
-cpu_stats
-cpu_temp
-cpu_load_change
-core_load_change
-cpu_load_value=50,90
-cpu_load_color={self.cpu_load_color}  # Cor definida pelo usuário
-cpu_color={self.cpu_color}  # Cor definida pelo usuário
-cpu_text=CPU
-cpu_mhz
+    cpu_stats
+    cpu_temp
+    cpu_load_change
+    core_load_change
+    cpu_load_value=50,90
+    cpu_load_color={self.cpu_load_color}
+    cpu_color={self.cpu_color}
+    cpu_text=CPU
+    cpu_mhz
 
-vram
-vram_color=FFAA7F
+    vram
+    vram_color=FFAA7F
 
-ram
-ram_color=62A0EA
+    ram
+    ram_color=62A0EA
 
-fps
-fps_color_change
-fps_value=30,60,144
-fps_color=b22222,fdfd09,39f900
-fps_metrics=avg,0.01,0.001
+    fps
+    fps_color_change
+    fps_value=30,60,144
+    fps_color=b22222,fdfd09,39f900
+    fps_metrics=avg,0.01,0.001
 
-engine_color=FFAA7F
+    engine_color=FFAA7F
 
-frame_timing=1
-frametime_color=00ff00
-background_alpha=0.4
-font_size=22
-gamemode
-device_battery=gamepad
-gamepad_battery_icon
-vulkan_driver
-position={posicao}  # Posição selecionada pelo usuário
-round_corners=10
+    frame_timing=1
+    frametime_color=00ff00
+    background_alpha=0.4
+    font_size=22
+    gamemode
+    device_battery=gamepad
+    gamepad_battery_icon
+    vulkan_driver
+    position={posicao}
+    round_corners=10
 
-toggle_hud=F1
+    toggle_hud=F1
 
-fps_limit={valor_fps}
-font_scale={valor_scale}
-"""
+    fps_limit={valor_fps}
+    font_scale={valor_scale}
+    """
 
         conteudo_vertical = f"""
-legacy_layout=false
-gpu_stats
-gpu_temp
-gpu_load_change
-gpu_load_value=50,90
-gpu_load_color={self.gpu_load_color}  # Cor definida pelo usuário
-gpu_text=GPU
-cpu_stats
-cpu_temp
-cpu_load_change
-core_load_change
-cpu_load_value=50,90
-cpu_load_color={self.cpu_load_color}  # Cor definida pelo usuário
-cpu_color={self.cpu_color}
-cpu_text=CPU
-io_color=a491d3
-vram
-vram_color=FEBD9D
-ram
-ram_color=FEBD9D
+    legacy_layout=false
+    gpu_stats
+    gpu_temp
+    gpu_load_change
+    gpu_load_value=50,90
+    gpu_load_color={self.gpu_load_color}
+    gpu_text=GPU
+    cpu_stats
+    cpu_temp
+    cpu_load_change
+    core_load_change
+    cpu_load_value=50,90
+    cpu_load_color={self.cpu_load_color}
+    cpu_color={self.cpu_color}
+    cpu_text=CPU
+    io_color=a491d3
+    vram
+    vram_color=FEBD9D
+    ram
+    ram_color=FEBD9D
 
-fps
-fps_color_change
-fps_value=30,60,144
-fps_color=b22222,fdfd09,39f900
+    fps
+    fps_color_change
+    fps_value=30,60,144
+    fps_color=b22222,fdfd09,39f900
 
-engine_color=eb5b5b
-gpu_color={self.gpu_color}
-wine_color=eb5b5b
-frame_timing=1
-frametime_color=00ff00
-media_player_color=ffffff
-background_alpha=0.4
-font_size=32
+    engine_color=eb5b5b
+    gpu_color={self.gpu_color}
+    wine_color=eb5b5b
+    frame_timing=1
+    frametime_color=00ff00
+    media_player_color=ffffff
+    background_alpha=0.4
+    font_size=32
 
-background_color=020202
-position={posicao}  # Posição selecionada pelo usuário
-text_color=ffffff
-round_corners=10
+    background_color=020202
+    position={posicao}
+    text_color=ffffff
+    round_corners=10
 
-toggle_hud=F1
+    toggle_hud=F1
 
-fps_limit={valor_fps}
-font_scale={valor_scale}
-"""
+    fps_limit={valor_fps}
+    font_scale={valor_scale}
+    """
 
         conteudo_vertical_complete = f"""
-legacy_layout=false
+    legacy_layout=false
 
-round_corners=10.0
+    round_corners=10.0
 
-gpu_stats
-gpu_temp
-gpu_core_clock
-gpu_mem_clock
-gpu_power
-gpu_load_change
-gpu_load_value=50,90
-gpu_load_color={self.gpu_load_color}  # Cor definida pelo usuário
-gpu_text=GPU
-cpu_stats
-cpu_temp
-core_load
-cpu_power
-cpu_mhz
-cpu_load_change
-core_load_change
-cpu_load_value=50,90
-cpu_load_color={self.cpu_load_color}  # Cor definida pelo usuário
-cpu_color={self.cpu_color}
-cpu_text=CPU
-io_stats
-io_read
-io_write
-io_color=a491d3
-swap
-vram
-vram_color=ad64c1
-ram
-ram_color=c26693
+    gpu_stats
+    gpu_temp
+    gpu_core_clock
+    gpu_mem_clock
+    gpu_power
+    gpu_load_change
+    gpu_load_value=50,90
+    gpu_load_color={self.gpu_load_color}
+    gpu_text=GPU
+    cpu_stats
+    cpu_temp
+    core_load
+    cpu_power
+    cpu_mhz
+    cpu_load_change
+    core_load_change
+    cpu_load_value=50,90
+    cpu_load_color={self.cpu_load_color}
+    cpu_color={self.cpu_color}
+    cpu_text=CPU
+    io_stats
+    io_read
+    io_write
+    io_color=a491d3
+    swap
+    vram
+    vram_color=ad64c1
+    ram
+    ram_color=c26693
 
-fps
-fps_color_change
-fps_value=30,60,144
-fps_color=b22222,fdfd09,39f900
-fps_metrics=avg,0.01,0.001
+    fps
+    fps_color_change
+    fps_value=30,60,144
+    fps_color=b22222,fdfd09,39f900
+    fps_metrics=avg,0.01,0.001
 
-engine_version
-engine_color=eb5b5b
-gpu_name
-gpu_color={self.gpu_color}
-vulkan_driver
-arch
-wine
-wine_color=eb5b5b
-frame_timing=1
-frametime_color=00ff00
-show_fps_limit
-resolution
-gamemode
-gamepad_battery
-gamepad_battery_icon
-battery
-position={posicao}  # Posição selecionada pelo usuário
+    engine_version
+    engine_color=eb5b5b
+    gpu_name
+    gpu_color={self.gpu_color}
+    vulkan_driver
+    arch
+    wine
+    wine_color=eb5b5b
+    frame_timing=1
+    frametime_color=00ff00
+    show_fps_limit
+    resolution
+    gamemode
+    gamepad_battery
+    gamepad_battery_icon
+    battery
+    position={posicao}
 
-toggle_hud=F1
+    toggle_hud=F1
 
-fps_limit={valor_fps}
-font_scale={valor_scale}
-"""
-
-        opcao_horizontal = self.layout_horizontal_checkbox.get_active()
-        opcao_vertical = self.layout_vertical_checkbox.get_active()
-        opcao_vertical_complete = self.vertical_complete_checkbox.get_active()
-
+    fps_limit={valor_fps}
+    font_scale={valor_scale}
+    """
 
         opcao_horizontal = self.layout_horizontal_checkbox.get_active()
         opcao_vertical = self.layout_vertical_checkbox.get_active()
         opcao_vertical_complete = self.vertical_complete_checkbox.get_active()
-
-        posicao = ""
-        if self.top_left_checkbox.get_active():
-            posicao = "top-left"
-            self.top_right_checkbox.set_active(False)
-            self.bottom_left_checkbox.set_active(False)
-            self.bottom_right_checkbox.set_active(False)
-        elif self.top_right_checkbox.get_active():
-            posicao = "top-right"
-            self.top_left_checkbox.set_active(False)
-            self.bottom_left_checkbox.set_active(False)
-            self.bottom_right_checkbox.set_active(False)
-        elif self.bottom_left_checkbox.get_active():
-            posicao = "bottom-left"
-            self.top_left_checkbox.set_active(False)
-            self.top_right_checkbox.set_active(False)
-            self.bottom_right_checkbox.set_active(False)
-        elif self.bottom_right_checkbox.get_active():
-            posicao = "bottom-right"
-            self.top_left_checkbox.set_active(False)
-            self.top_right_checkbox.set_active(False)
-            self.bottom_left_checkbox.set_active(False)
-        elif self.topcenter_checkbox.get_active():
-            posicao = "top-center"
-            self.top_left_checkbox.set_active(False)
-            self.top_right_checkbox.set_active(False)
-            self.bottom_left_checkbox.set_active(False)
-            self.bottom_right_checkbox.set_active(False)
-        elif self.bottomcenter_checkbox.get_active():
-            posicao = "bottom-center"
-            self.top_left_checkbox.set_active(False)
-            self.top_right_checkbox.set_active(False)
-            self.bottom_left_checkbox.set_active(False)
-            self.bottom_right_checkbox.set_active(False)
-        else:
-            print("Selecione uma opção de posição!")
-            return
 
         if opcao_horizontal and not (opcao_vertical or opcao_vertical_complete):
-            conteudo_config = conteudo_horizontal.replace("position=top", f"position={posicao}")
+            conteudo_config = conteudo_horizontal
         elif opcao_vertical and not (opcao_horizontal or opcao_vertical_complete):
-            conteudo_config = conteudo_vertical.replace("position=top", f"position={posicao}")
+            conteudo_config = conteudo_vertical
         elif opcao_vertical_complete and not (opcao_horizontal or opcao_vertical):
-            conteudo_config = conteudo_vertical_complete.replace("position=top", f"position={posicao}")
+            conteudo_config = conteudo_vertical_complete
         else:
-            print("Selecione apenas uma opção!")
+            print("Selecione apenas uma opção de layout!")
             return
 
         if not os.path.isfile(caminho_config):
@@ -657,13 +630,9 @@ font_scale={valor_scale}
             print(f"Erro ao criar cópia de backup: {str(e)}")
             return
 
-        conteudo_config = conteudo_config.replace("fps_limit={}", f"fps_limit={valor_fps}")
-        conteudo_config = conteudo_config.replace("font_scale={}", f"font_scale={valor_scale}")
-
         try:
             with open(caminho_config, "w") as config_file:
                 config_file.write(conteudo_config)
             print("Arquivo de configuração atualizado!")
         except IOError as e:
             print(f"Erro ao atualizar o arquivo de configuração: {str(e)}")
-
