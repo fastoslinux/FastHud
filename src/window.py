@@ -437,6 +437,7 @@ class MainWindow(Gtk.ApplicationWindow):
     legacy_layout=0
     table_columns=20
     background_alpha=0
+    horizontal
 
     gpu_stats
     gpu_temp
