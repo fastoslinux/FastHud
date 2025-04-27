@@ -1,8 +1,11 @@
 [Desktop Entry]
+Version=1.0
 Name=FastHud
-Exec=fasthudgtk4devel
+Comment=Quick MangoHud Configuration
+Exec=fasthudgtk4devel %U
 Icon=io.github.fastoslinux.fasthud
 Terminal=false
 Type=Application
-Categories=GTK;
+Categories=Utility;
 StartupNotify=true
+X-GNOME-UsesNotifications=true

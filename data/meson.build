@@ -1,10 +1,10 @@
 # Copia e instala o arquivo .desktop
 desktop_file = configure_file(
-    input: 'io.github.fastoslinux.fasthud.desktop.in',
-    output: 'io.github.fastoslinux.fasthud.desktop',
-    configuration: configuration_data(),
+    input: 'io.github.fastoslinux.fasthud.desktop.in',  # Arquivo de entrada
+    output: 'io.github.fastoslinux.fasthud.desktop',   # Arquivo de saída
+    copy: true,  # Copiar diretamente sem substituições
     install: true,
-    install_dir: join_paths(get_option('datadir'), 'applications')
+    install_dir: join_paths(get_option('datadir'), 'applications')  # Diretório de instalação
 )
 
 # Valida o arquivo .desktop usando desktop-file-validate
@@ -18,11 +18,11 @@ endif
 
 # Copia e instala o arquivo .metainfo.xml
 metainfo_file = configure_file(
-    input: 'io.github.fastoslinux.fasthud.metainfo.xml.in',
-    output: 'io.github.fastoslinux.fasthud.metainfo.xml',
-    configuration: configuration_data(),
+    input: 'io.github.fastoslinux.fasthud.metainfo.xml.in',  # Arquivo de entrada
+    output: 'io.github.fastoslinux.fasthud.metainfo.xml',    # Arquivo de saída
+    copy: true,  # Copiar diretamente sem substituições
     install: true,
-    install_dir: join_paths(get_option('datadir'), 'metainfo')
+    install_dir: join_paths(get_option('datadir'), 'metainfo')  # Diretório de instalação
 )
 
 # Valida o arquivo .metainfo.xml usando appstream-util (se disponível)

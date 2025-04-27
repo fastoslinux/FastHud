@@ -1,60 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
   <id>io.github.fastoslinux.fasthud</id>
-  <metadata_license>CC0-1.0</metadata_license>
-  <project_license>GPL-3.0-or-later</project_license>
+
   <name>FastHud</name>
   <summary>Quick MangoHud Configuration</summary>
+
+  <metadata_license>CC-BY-SA-4.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <category>Utility</category>
+
+
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>touch</control>
+  </supports>
+
+
   <description>
-    <p>Easily configure MangoHud with pre-defined settings while having the option to adjust layouts between vertical and horizontal orientations. Additionally, the app automatically creates a backup of the previous MangoHud.conf file upon clicking the 'Apply' button.</p>
+    <p>
+      Easily configure MangoHud with pre-defined settings while having the option to adjust layouts between vertical and horizontal orientations. Additionally, the app automatically creates a backup of the previous MangoHud.conf file upon clicking the &apos;Apply&apos; button
+    </p>
   </description>
-  <developer id="io.github.fastoslinux.fasthud">
-    <name>FastOSLinux</name>
-  </developer>
 
-  <url type="homepage">https://github.com/fastoslinux/fasthud</url>
-  <url type="vcs-browser">https://github.com/fastoslinux/fasthud</url>
-  <url type="bugtracker">https://github.com/fastoslinux/fasthud/issues</url>
-  <url type="translate">https://github.com/fastoslinux/fasthud</url>
-  <url type="donation">https://github.com/fastoslinux/fasthud</url>
-  <url type="contact">https://github.com/fastoslinux/fasthud</url>
-
-  <translation type="gettext">fasthud</translation>
   <launchable type="desktop-id">io.github.fastoslinux.fasthud.desktop</launchable>
-  <content_rating type="oars-1.1" />
-
-  <branding>
-    <color type="primary" scheme_preference="light">#33D17A</color>
-    <color type="primary" scheme_preference="dark">#3584E4</color>
-  </branding>
-
   <screenshots>
     <screenshot type="default">
       <image>https://raw.githubusercontent.com/fastoslinux/FastHud/master/data/fasthud1.png</image>
-      <caption>App screenshot</caption>
     </screenshot>
     <screenshot>
       <image>https://raw.githubusercontent.com/fastoslinux/FastHud/master/data/fasthud2.png</image>
-      <caption>Layout Vertical Completo</caption>
     </screenshot>
     <screenshot>
       <image>https://raw.githubusercontent.com/fastoslinux/FastHud/master/data/fasthud3.png</image>
-      <caption>Layout Vertical</caption>
-    </screenshot>
-    <screenshot>
-      <image>https://raw.githubusercontent.com/fastoslinux/FastHud/master/data/fasthud4.png</image>
-      <caption>Layout Horizontal</caption>
     </screenshot>
   </screenshots>
-
-  <releases>
-    <release version="2.0.9" date="2025-04-27">
-      <url type="details">https://github.com/fastoslinux/fasthud/releases/tag/2.0.9</url>
-      <description>
-        <p>Highlight for unselected layout/position.</p>
-      </description>
-    </release>
-  </releases>
-
 </component>
-

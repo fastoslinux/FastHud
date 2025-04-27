@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schemalist gettext-domain="fasthudgtk4devel">
-	<schema id="io.github.fastoslinux.fasthud" path="/io/github/fastoslinux/fasthud/">
-	</schema>
+<schemalist gettext-domain="fasthud">
+  <schema id="io.github.fastoslinux.Fasthud" path="/io/github/fastoslinux/Fasthud/">
+    <key type="b" name="show-backup-message">
+      <default>true</default>
+      <summary>Option to show a message about backup creation.</summary>
+      <description>
+        When enabled, the app will display a message confirming that a backup of the previous MangoHud.conf file has been created.
+      </description>
+    </key>
+  </schema>
 </schemalist>
+
