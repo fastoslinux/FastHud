@@ -468,7 +468,6 @@ class MainWindow(Gtk.ApplicationWindow):
     fps_color_change
     fps_value=30,60,144
     fps_color=b22222,fdfd09,39f900
-    fps_metrics=avg,0.01,0.001
 
     engine_color=FFAA7F
 

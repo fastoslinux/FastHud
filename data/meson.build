@@ -1,8 +1,8 @@
-# Copia o arquivo .desktop diretamente para o diretório de instalação
-custom_target('desktop_file',
+# Copia e instala o arquivo .desktop
+desktop_file = configure_file(
     input: 'io.github.fastoslinux.fasthud.desktop.in',
     output: 'io.github.fastoslinux.fasthud.desktop',
-    command: ['cp', '@INPUT@', '@OUTPUT@'],
+    configuration: configuration_data(),
     install: true,
     install_dir: join_paths(get_option('datadir'), 'applications')
 )
@@ -10,22 +10,28 @@ custom_target('desktop_file',
 # Valida o arquivo .desktop usando desktop-file-validate
 desktop_utils = find_program('desktop-file-validate', required: false)
 if desktop_utils.found()
-    test('Validate desktop file', desktop_utils, args: ['io.github.fastoslinux.fasthud.desktop'])
+    test('Validate desktop file',
+         desktop_utils,
+         args: [desktop_file]
+    )
 endif
 
-# Copia o arquivo .appdata.xml diretamente para o diretório de instalação
-custom_target('appdata_file',
-    input: 'io.github.fastoslinux.fasthud.appdata.xml.in',
-    output: 'io.github.fastoslinux.fasthud.appdata.xml',
-    command: ['cp', '@INPUT@', '@OUTPUT@'],
+# Copia e instala o arquivo .metainfo.xml
+metainfo_file = configure_file(
+    input: 'io.github.fastoslinux.fasthud.metainfo.xml.in',
+    output: 'io.github.fastoslinux.fasthud.metainfo.xml',
+    configuration: configuration_data(),
     install: true,
-    install_dir: join_paths(get_option('datadir'), 'appdata')
+    install_dir: join_paths(get_option('datadir'), 'metainfo')
 )
 
-# Valida o arquivo .appdata.xml usando appstream-util (se disponível)
+# Valida o arquivo .metainfo.xml usando appstream-util (se disponível)
 appstream_util = find_program('appstream-util', required: false)
 if appstream_util.found()
-    test('Validate appstream file', appstream_util, args: ['validate', 'io.github.fastoslinux.fasthud.appdata.xml'])
+    test('Validate metainfo file',
+         appstream_util,
+         args: ['validate', metainfo_file]
+    )
 endif
 
 # Instala o arquivo de esquema gsettings (o Meson compila o gschema automaticamente)
