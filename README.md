@@ -1,5 +1,6 @@
 # FastHud
-![image](https://github.com/user-attachments/assets/0fc35144-873c-425d-9e90-998f005b0900)
+
+![fasthud2](https://github.com/user-attachments/assets/1404bfab-a0c4-491b-82be-eb834a7f57fc)
 
 
 
