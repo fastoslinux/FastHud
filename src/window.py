@@ -593,6 +593,7 @@ class MainWindow(Gtk.ApplicationWindow):
     gamepad_battery_icon
     battery
     position={posicao}
+    display_server
 
     toggle_hud=F1
 
